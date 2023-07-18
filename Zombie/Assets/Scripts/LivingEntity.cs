@@ -39,6 +39,10 @@ public class LivingEntity : MonoBehaviour, IDamageable {
 
         // 체력 추가
         health += newHealth;
+        if(health >= 100)
+        {
+            health = 100;
+        }
     }
 
     // 사망 처리

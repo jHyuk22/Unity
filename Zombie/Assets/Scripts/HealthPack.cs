@@ -9,13 +9,12 @@ public class HealthPack : MonoBehaviour, IItem {
         LivingEntity life = target.GetComponent<LivingEntity>();
 
         // LivingEntity컴포넌트가 있다면
-        if (life != null)
+        if (life != null && life.health < 100)
         {
             // 체력 회복 실행
             life.RestoreHealth(health);
+            // 사용되었으므로, 자신을 파괴
+            Destroy(gameObject);
         }
-
-        // 사용되었으므로, 자신을 파괴
-        Destroy(gameObject);
     }
 }
